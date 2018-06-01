@@ -1,2 +1,2 @@
-# OswaldoNotes
-Notes of the Oswald
+# This is Jango Notes
+Notes made in Django
