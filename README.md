@@ -4,9 +4,25 @@ Notes made in Django by Justin and Leon
 ### Cloning Repo
 `git clone git@github.com:LonJonn/Jango-Notes.git`
 
-### Setup Dev
+### Creating Virtual Python Env
+1. cd into folder with jangoMain `cd path/to/folder`
 
-1. Open terminal `control + ~`
+2. `python3 -m venv jangoEnv`
+
+3. `pip install django`
+
+Final Tree:
+```
+Jango-Notes
+  |-- jangoEnv
+  |-- jangoMain
+  |-- .gitignore
+  `-- README.md
+```
+
+### Starting Dev Server
+
+1. Open terminal <kbd>CTRL</kbd>+<kbd>`</kbd>
 
 2. Set Python Env `source jangoEnv/bin/activate` 
 
