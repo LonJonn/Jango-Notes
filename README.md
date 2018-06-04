@@ -1,6 +1,5 @@
 # Jango Notes
-Notes made in Django
->by Justin and Leon
+Notes made in Django by Justin and Leon
 
 ### Cloning Repo
 `git clone git@github.com:LonJonn/Jango-Notes.git`
@@ -19,8 +18,8 @@ Notes made in Django
 
 ### Making changes to DB and Models
 If you make a change to a model
->for e.g. added a new model to *app*
+ (for e.g. added a new model to _app_)
 
-1. `python manage.py makemigrations *app*`
+1. `python manage.py makemigrations app`
 
 2. `python manage.py migrate`
