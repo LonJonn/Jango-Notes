@@ -1,11 +1,11 @@
-#Jango Notes
+# Jango Notes
 Notes made in Django
 >by Justin and Leon
 
-###Cloning Repo
+### Cloning Repo
 `git clone git@github.com:LonJonn/Jango-Notes.git`
 
-###Setup Dev
+### Setup Dev
 
 1. Open terminal `control + ~`
 
@@ -17,7 +17,7 @@ Notes made in Django
 
 5. Open `http://localhost:8000` in browser
 
-###Making changes to DB and Models
+### Making changes to DB and Models
 If you make a change to a model
 >for e.g. added a new model to *app*
 
