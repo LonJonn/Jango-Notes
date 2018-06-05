@@ -1,3 +1,5 @@
+{% load humanize %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +12,9 @@
     <h1 style="color: rgb(53, 141, 182)">Info Page</h1>
     {% if notes %}
         {% for note in notes %}
-            {{ note.title }}
+            {{ note.title }}<br>
+            <b>created:</b> {{ note.dateCreated|date:"jS \o\f F, Y \a\t P" }}<br>
+            <b>due:</b> {{ note.dateDue|naturaltime }}
             <br>
             {{ note.colour }}
             <br>
