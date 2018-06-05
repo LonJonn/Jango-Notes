@@ -9,7 +9,9 @@ Notes made in Django by Justin and Leon
 
 2. `python3 -m venv jangoEnv`
 
-3. `pip install django`
+3. Set Python Env `source jangoEnv/bin/activate`
+
+4. `pip install django`
 
 Final Tree:
 ```

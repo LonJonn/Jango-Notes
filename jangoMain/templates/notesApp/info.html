@@ -8,7 +8,18 @@
 </head>
 <body>
     <h1 style="color: rgb(53, 141, 182)">Info Page</h1>
-    {{ notes }}
+    {% if notes %}
+        {% for note in notes %}
+            {{ note.title }}
+            <br>
+            {{ note.colour }}
+            <br>
+            <br>
+            <br>
+        {% endfor %}
+    {% else %}
+        no notes
+    {% endif %}
     <br>
     <a href="/">back</a>
 </body>
