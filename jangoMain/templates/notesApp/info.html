@@ -9,11 +9,12 @@
     <title>Login Page</title>
 </head>
 <body>
-    <h1 style="color: rgb(53, 141, 182)">Info Page</h1>
+    <h1>Info Page</h1>
     {% if notes %}
         {% for note in notes %}
-            {{ note.title }}<br>
-            <b>created:</b> {{ note.dateCreated|date:"jS \o\f F, Y \a\t P" }}<br>
+            <span class="{{ note.colour }}">{{ note.title }}</span>
+            <br>
+            <b>created:</b> {{ note.dateCreated|naturalday }}<br>
             <b>due:</b> {{ note.dateDue|naturaltime }}
             <br>
             {{ note.colour }}
@@ -28,3 +29,25 @@
     <a href="/">back</a>
 </body>
 </html>
+
+<style>
+    h1 {
+        color: rgb(53, 141, 182)
+    }
+
+    .red {
+        color: rgb(238, 93, 93)
+    }
+
+    .blue {
+        color: rgb(66, 152, 228)
+    }
+
+    .green {
+        color: rgb(71, 192, 97)
+    }
+
+    .yellow {
+        color: rgb(236, 214, 87)
+    }
+</style>

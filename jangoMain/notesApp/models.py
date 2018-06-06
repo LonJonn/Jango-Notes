@@ -13,7 +13,7 @@ class Note(models.Model):
     owner = models.IntegerField()
     title = models.CharField(max_length=20)
     description = models.TextField()
-    colour = models.CharField(max_length=4, choices=colourChoices)
+    colour = models.CharField(max_length=20, choices=colourChoices)
     subject = models.CharField(max_length=20)
     dateCreated = models.DateTimeField('date created')
     dateDue = models.DateTimeField('date due')
