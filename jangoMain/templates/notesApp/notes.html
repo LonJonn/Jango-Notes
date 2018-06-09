@@ -1,18 +1,12 @@
+{% extends "base.html" %}
 {% load humanize %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login Page</title>
-</head>
-<body>
-    <h1>Info Page</h1>
+{% block content %}
+    <h1>Notes</h1>
     {% if notes %}
+        Total number of notes: <b>{{ numNotes }}</b><br><br>
         {% for note in notes %}
-            <span class="{{ note.colour }}">{{ note.title }}</span>
+            <a href="note/{{note.id}}" class="{{ note.colour }}">{{ note.title }}</a>
             <br>
             <b>created:</b> {{ note.dateCreated|naturalday }}<br>
             <b>due:</b> {{ note.dateDue|naturaltime }}
@@ -26,28 +20,5 @@
         no notes
     {% endif %}
     <br>
-    <a href="/">back</a>
-</body>
-</html>
-
-<style>
-    h1 {
-        color: rgb(53, 141, 182)
-    }
-
-    .red {
-        color: rgb(238, 93, 93)
-    }
-
-    .blue {
-        color: rgb(66, 152, 228)
-    }
-
-    .green {
-        color: rgb(71, 192, 97)
-    }
-
-    .yellow {
-        color: rgb(236, 214, 87)
-    }
-</style>
+    <a href="{% url 'index' %}">back</a>
+{% endblock %}

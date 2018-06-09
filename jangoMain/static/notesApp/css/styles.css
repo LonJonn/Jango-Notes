@@ -1,0 +1,21 @@
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+.red {
+    color: rgb(238, 93, 93)
+}
+
+.blue {
+    color: rgb(66, 152, 228)
+}
+
+.green {
+    color: rgb(71, 192, 97)
+}
+
+.yellow {
+    color: rgb(236, 214, 87)
+}
