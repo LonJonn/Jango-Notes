@@ -4,6 +4,10 @@
     list-style: none;
 }
 
+h1 {
+    color: rgb(53, 141, 182)
+}
+
 .red {
     color: rgb(238, 93, 93)
 }
