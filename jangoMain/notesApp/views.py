@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
+from django.http import Http404
 from .models import Note
 from django.contrib.auth.models import User
 
@@ -13,5 +14,6 @@ def notes(request):
     numNotes = notes.count()
     return render(request, 'notesApp/notes.html', {'notes': notes, 'numNotes': numNotes})
 
-def noteInfo(request):
-    return render(request, 'notesApp/noteInfo.html')
+def editNote(request, pk):
+    note = get_object_or_404(Note, pk=pk)
+    return render(request, 'notesApp/editNote.html', {'note': note})
