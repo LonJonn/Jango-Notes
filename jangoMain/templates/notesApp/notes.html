@@ -2,10 +2,12 @@
 {% load humanize %}
 
 {% block content %}
-    <h1>Notes</h1>
+<h1>Notes</h1>
+{% if user.is_authenticated %}
     {% if notes %}
-        Total number of notes: <b>{{ numNotes }}</b><br><br>
-        {% for note in notes %}
+    Total number of notes: <b>{{ numNotes }}</b><br><br>
+    {% for note in notes %}
+        {% if note.owner.get_username == user.get_username %}
             <a href="note/{{note.id}}" class="{{ note.colour }}">{{ note.title }}</a>
             <br>
             <b>created:</b> {{ note.dateCreated|naturalday }}<br>
@@ -14,10 +16,15 @@
             {{ note.colour }}
             <br>
             <br>
-            <br>
-        {% endfor %}
+        {% endif %}
+    {% endfor %}
+{% else %}
+    no notes
+{% endif %}
     {% else %}
-        no notes
+        Please log in to see your notes.
+        <br>
+        <a href="{$ login $}"></a>
     {% endif %}
     <br>
     <a href="{% url 'index' %}">back</a>

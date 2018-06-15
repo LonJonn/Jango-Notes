@@ -37,8 +37,20 @@
               <a class="nav-link" href="{% url 'notes' %}">All notes</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="admin">Admin Site</a>
+              <a class="nav-link" href="/admin">Admin Site</a>
             </li>
+
+            {% if user.is_authenticated %}
+              <li>User: {{ user.get_username }}</li>
+              <li>
+                <a href="{% url 'logout'%}?next=/accounts/logout">Logout</a>
+              </li>
+              {% else %}
+              <li>
+                <a href="{% url 'login'%}?next={{request.path}}">Login</a>
+              </li>
+            {% endif %}
+            
           </ul>
         </nav>
         {% endblock %}
