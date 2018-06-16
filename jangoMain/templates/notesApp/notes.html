@@ -2,30 +2,25 @@
 {% load humanize %}
 
 {% block content %}
-<h1>Notes</h1>
-{% if user.is_authenticated %}
-    {% if notes %}
-    Total number of notes: <b>{{ numNotes }}</b><br><br>
-    {% for note in notes %}
-        {% if note.owner.get_username == user.get_username %}
-            <a href="note/{{note.id}}" class="{{ note.colour }}">{{ note.title }}</a>
-            <br>
-            <b>created:</b> {{ note.dateCreated|naturalday }}<br>
-            <b>due:</b> {{ note.dateDue|naturaltime }}
-            <br>
-            {{ note.colour }}
-            <br>
-            <br>
-        {% endif %}
+  <h1>Notes</h1>
+  {% if noteList %}
+    <h5>You have {{ notesCount }} note(s)!</h5>
+    {% for note in noteList %}
+      <a href="{% url 'editNote' note.id %}" class="{{ note.colour }}">{{ note.title }}</a>
+      <br>
+      <b>created:</b>
+      {{ note.dateCreated|naturalday }}
+      <br>
+      <b>due:</b>
+      {{ note.dateDue|naturaltime }}
+      <br>
+      {{ note.colour }}
+      <br>
+      <br>
     {% endfor %}
-{% else %}
+  {% else %}
     no notes
-{% endif %}
-    {% else %}
-        Please log in to see your notes.
-        <br>
-        <a href="{$ login $}"></a>
-    {% endif %}
-    <br>
-    <a href="{% url 'index' %}">back</a>
+  {% endif %}
+  <br>
+  <a href="{% url 'index' %}">back</a>
 {% endblock %}
