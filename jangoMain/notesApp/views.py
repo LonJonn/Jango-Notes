@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.http import Http404
+from django.db.models import Q
 
 from .models import Note
 from django.contrib.auth.models import User
@@ -16,7 +17,14 @@ from django.contrib.auth.decorators import login_required
 
 @login_required
 def Notes(request):
-    noteList = Note.objects.filter(owner = request.user)
+    search = request.GET.get('search', '')
+    sort = request.GET.get('sort', 'dateCreated')
+    noteList = Note.objects.filter(
+        Q(title__contains=search) | 
+     Q(description__contains=search) | 
+     Q(group__contains=search) | 
+     Q(colour__contains=search)
+     ).filter(owner=request.user).order_by(sort)
 
     return render(request, 'notesApp/notes.html', {'noteList': noteList})
 

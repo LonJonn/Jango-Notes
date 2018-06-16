@@ -5,6 +5,10 @@
   <h1>Notes</h1>
   {% if noteList %}
     <h5>You have {{ noteList.count }} note(s)!</h5>
+    <button id="colour">colour</button> | 
+    <button id="group">group</button> | 
+    <button id="dateDue">date due</button> | 
+    <button id="removeSort">clear</button><br>
     {% for note in noteList %}
       <a href="{% url 'editNote' note.id %}" class="{{ note.colour }}">{{ note.title }}</a>
       <br>

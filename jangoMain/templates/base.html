@@ -52,6 +52,9 @@
                   <a class="nav-link" href="/admin">Admin Site</a>
                 </li>
 
+                <input type="text" id="searchInput">
+                <button id="search">test</button>
+
                 {% if user.is_authenticated %}
                   <li>User:
                     {{ user.get_username }}</li>
@@ -77,3 +80,73 @@
   </body>
 
 </html>
+
+<script>
+    function getParameterByName(name) {
+      url = window.location.href;
+      name = name.replace(/[\[\]]/g, "\\$&");
+      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+          results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, " "));
+  }
+
+  function updateQueryStringParameter(uri, key, value) {
+    var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
+    var separator = uri.indexOf('?') !== -1 ? "&" : "?";
+
+    if (value == '') {
+      return 'notes'
+    }
+
+    if (uri.match(re)) {
+      if (value == getParameterByName('sort') && key == 'sort') {
+        if (value.startsWith('-')) {
+          value = value.replace('-', '')
+        } else {
+          value = `-${value}`
+        }
+      }
+
+      return uri.replace(re, '$1' + key + "=" + value + '$2');
+    }
+    else {
+      return uri + separator + key + "=" + value;
+    }
+  }
+
+  $(document).ready(function () {
+    $('#searchInput').val(getParameterByName('search'))
+  })
+
+  $('#search').click(function () {
+    url = window.location.href
+    searchText = $('#searchInput').val()
+    window.location.href = updateQueryStringParameter(url, 'search', searchText)
+  })
+
+  $('#colour').click(function () {
+    url = window.location.href
+    window.location.href = updateQueryStringParameter(url, 'sort', 'colour')
+  })
+
+  $('#group').click(function () {
+    url = window.location.href
+    searchText = $('#searchInput').val()
+    window.location.href = updateQueryStringParameter(url, 'sort', 'group')
+  })
+
+  $('#dateDue').click(function () {
+    url = window.location.href
+    searchText = $('#searchInput').val()
+    window.location.href = updateQueryStringParameter(url, 'sort', 'dateDue')
+  })
+
+  $('#removeSort').click(function () {
+    url = window.location.href
+    searchText = $('#searchInput').val()
+    window.location.href = updateQueryStringParameter(url, 'sort', '')
+  })
+
+</script>
