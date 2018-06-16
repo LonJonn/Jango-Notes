@@ -116,37 +116,33 @@
     }
   }
 
+  function query(key, value) {
+    url = window.location.href
+    window.location.href = updateQueryStringParameter(url, key, value)
+  }
+
   $(document).ready(function () {
     $('#searchInput').val(getParameterByName('search'))
   })
 
-  $('#search').click(function () {
-    url = window.location.href
-    searchText = $('#searchInput').val()
-    window.location.href = updateQueryStringParameter(url, 'search', searchText)
+  $('#search').click(function() {
+    query('search', $('#searchInput').val())
   })
 
-  $('#colour').click(function () {
-    url = window.location.href
-    window.location.href = updateQueryStringParameter(url, 'sort', 'colour')
+  $('#colour').click(function() {
+    query('sort', 'colour')
   })
 
-  $('#group').click(function () {
-    url = window.location.href
-    searchText = $('#searchInput').val()
-    window.location.href = updateQueryStringParameter(url, 'sort', 'group')
+  $('#group').click(function() {
+    query('sort', 'group')
   })
 
-  $('#dateDue').click(function () {
-    url = window.location.href
-    searchText = $('#searchInput').val()
-    window.location.href = updateQueryStringParameter(url, 'sort', 'dateDue')
+  $('#dateDue').click(function() {
+    query('sort', 'dateDue')
   })
 
-  $('#removeSort').click(function () {
-    url = window.location.href
-    searchText = $('#searchInput').val()
-    window.location.href = updateQueryStringParameter(url, 'sort', '')
+  $('#removeSort').click(function() {
+    query('sort', '')
   })
-
+  
 </script>
