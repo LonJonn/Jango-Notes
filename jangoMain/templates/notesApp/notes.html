@@ -4,7 +4,7 @@
 {% block content %}
   <h1>Notes</h1>
   {% if noteList %}
-    <h5>You have {{ notesCount }} note(s)!</h5>
+    <h5>You have {{ noteList.count }} note(s)!</h5>
     {% for note in noteList %}
       <a href="{% url 'editNote' note.id %}" class="{{ note.colour }}">{{ note.title }}</a>
       <br>

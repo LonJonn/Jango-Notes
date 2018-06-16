@@ -3,8 +3,9 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('notes', views.notes, name='notes'),
-    path('note/<int:pk>', views.editNote, name='editNote'),
-    path('notes/add', views.noteCreate, name='noteCreate'),
+    path('', views.Index, name='index'),
+    path('notes', views.Notes, name='notes'),
+    path('note/<int:pk>', views.EditNote, name='editNote'),
+    path('note/<int:pk>/delete', views.DeleteNote, name='deleteNote'),
+    path('notes/add', views.CreateNote, name='noteCreate'),
 ]
