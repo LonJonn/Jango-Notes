@@ -36,8 +36,9 @@ def CreateNote(request):
     if request.method == 'POST':
         form = NoteForm(request.POST)
         if form.is_valid():
-            form.cleaned_data['owner'] = request.user
-            Note.objects.create(**form.cleaned_data)
+            newNote = form.save(commit=False)
+            newNote.owner = request.user
+            newNote.save()
             return redirect('notes')
     else:
         form = NoteForm()
@@ -73,9 +74,8 @@ from django.contrib.auth import login
 def CreateUser(request):
     if request.method == "POST":
         form = UserForm(request.POST)
-        print(form)
         if form.is_valid():
-            new_user = User.objects.create_user(**form.cleaned_data)
+            new_user = form.save()
             login(request, new_user)
             return redirect('notes')
     else:
