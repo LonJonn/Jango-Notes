@@ -19,12 +19,12 @@ from django.contrib.auth.decorators import login_required
 def Notes(request):
     search = request.GET.get('search', '')
     sort = request.GET.get('sort', 'dateCreated')
-    noteList = Note.objects.filter(
+    noteList = Note.objects.filter(owner=request.user).filter(
         Q(title__contains=search) | 
      Q(description__contains=search) | 
      Q(group__contains=search) | 
      Q(colour__contains=search)
-     ).filter(owner=request.user).order_by(sort)
+     ).order_by(sort)
 
     return render(request, 'notesApp/notes.html', {'noteList': noteList})
 
@@ -36,9 +36,8 @@ def CreateNote(request):
     if request.method == 'POST':
         form = NoteForm(request.POST)
         if form.is_valid():
-            newNote = form.save(commit=False)
-            newNote.owner = request.user
-            newNote.save()
+            form.cleaned_data['owner'] = request.user
+            Note.objects.create(**form.cleaned_data)
             return redirect('notes')
     else:
         form = NoteForm()
@@ -53,8 +52,7 @@ def EditNote(request, pk):
     if request.method == 'POST':
         form = NoteForm(request.POST, instance=note)
         if form.is_valid():
-            newNote = form.save(commit=False)
-            newNote.save()
+            form.save()
             return redirect('notes')
     else:
         form = NoteForm(instance=note)
@@ -68,3 +66,19 @@ def DeleteNote(request, pk):
     note.delete()
 
     return redirect('notes')
+
+from .forms import UserForm
+from django.contrib.auth import login
+
+def CreateUser(request):
+    if request.method == "POST":
+        form = UserForm(request.POST)
+        print(form)
+        if form.is_valid():
+            new_user = User.objects.create_user(**form.cleaned_data)
+            login(request, new_user)
+            return redirect('notes')
+    else:
+        form = UserForm()
+
+    return render(request, 'notesApp/register.html', {'form': form})
