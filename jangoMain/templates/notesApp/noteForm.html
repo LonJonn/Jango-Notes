@@ -1,5 +1,9 @@
 {% extends "base.html" %}
 
+{% block head %}
+  {{ form.media }}
+{% endblock head %}
+
 {% block content %}
   <form action="" method="POST">
     {% csrf_token%}

@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     "django.contrib.humanize",
-    'notesApp'
+    'notesApp',
+    'bootstrap_datepicker_plus',
 ]
 
 MIDDLEWARE = [
@@ -128,3 +129,7 @@ STATICFILES_DIRS = [
 LOGIN_REDIRECT_URL = '/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+BOOTSTRAP4 = {
+    'include_jquery': True,
+}

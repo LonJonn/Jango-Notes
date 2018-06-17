@@ -75,7 +75,7 @@ def CreateUser(request):
     if request.method == "POST":
         form = UserForm(request.POST)
         if form.is_valid():
-            new_user = form.save()
+            new_user = User.objects.create_user(**form.cleaned_data)
             login(request, new_user)
             return redirect('notes')
     else:
