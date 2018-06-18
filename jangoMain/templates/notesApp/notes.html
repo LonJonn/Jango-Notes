@@ -2,15 +2,17 @@
 {% load humanize %}
 
 {% block content %}
-  <h1>Notes</h1>
+  <h1>Notes</h1><br>
+  <a class="btn btn-primary" href="{% url 'noteCreate' %}">Add</a><br><br>
   {% if noteList %}
     <h5>You have {{ noteList.count }} note(s)!</h5>
     <button id="colour">colour</button> | 
     <button id="group">group</button> | 
     <button id="dateDue">date due</button> | 
-    <button id="removeSort">clear</button><br>
+    <button id="removeSort">clear</button><br><br>
     {% for note in noteList %}
-      <a href="{% url 'editNote' note.id %}" class="{{ note.colour }}">{{ note.title }}</a>
+      <a href="{% url 'editNote' note.id %}" class="{{ note.colour }}">{{ note.title }}</a> | 
+      <a href="{% url 'deleteNote' note.id %}" class="text-danger">delete</a>
       <br>
       <b>created:</b>
       {{ note.dateCreated|naturalday }}
