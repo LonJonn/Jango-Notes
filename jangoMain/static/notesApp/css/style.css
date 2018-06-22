@@ -1,38 +1,170 @@
 * {
     margin: 0;
     padding: 0;
-}
-
-.sidebar-nav {
-    margin-top: 20px;
-    padding: 0;
-    list-style: none;
+    font-family: "Helvetica Neue";
+    /* color: #535353; */
 }
 
 h1 {
-    color: rgb(53, 141, 182)
+    color: #535353;
+    font-weight: 300;
+    font-size: 4.2rem
 }
 
 .red {
     background-color: #FFA8A8 !important;
 }
 
+.red > .note-title {
+    background-color: #FB8585
+}
+
 .blue {
     background-color: #A8C3FF !important;
+}
+
+.blue > .note-title {
+    background-color: #7AA1FA
 }
 
 .green {
     background-color: #90EAA1 !important;
 }
 
+.green > .note-title {
+    background-color: rgb(123, 209, 138)
+}
+
 .yellow {
     background-color: #FFE9A8 !important;
+}
+
+.yellow > .note-title {
+    background-color: #FADA7A
+}
+
+/* The sidebar menu */
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 20vw; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #2F2F2F; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding: 20px 30px;
+    text-align: right;
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #CECECE;
+    display: block;
+    font-weight: 300
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
+#searchInput {
+    width: 100%;
+    margin: 30px 0 20px;
+    border-radius: 25px;
+    border-style: none;
+    padding: 0px 15px 5px;
+    font-size: 1.6rem;
+    height: 35px;
+    font-weight: 300;
+    background-color: #4B4B4B;
+    color: #8E8E8E;
+    text-align: right;
+}
+
+::placeholder {
+    color: #8E8E8E !important
+}
+
+.inner-addon { 
+    position: relative; 
+}
+
+/* style icon */
+.inner-addon .material-icons {
+  position: absolute;
+  padding: 7px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon .material-icons  { left:  0px;}
+.right-addon .material-icons { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+
+/* Style page content */
+.main {
+    padding: 20px 0px 0 85px;
+    margin-left: 20vw; /* Same as the width of the sidebar */
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
+.sort-icons {
+    color: #727272;
+    margin-bottom: 20px;
+}
+
+.clear-button {
+    background: #f1f1f1;
+    border-radius: 50px;
+    padding: 3px 18px 7px;
+    height: 38px;
+    width: 60px;
+    font-size: 1.8rem;
+    margin-left: 50px;
+}
+
+.note-list {
+    overflow-y: scroll;
+    height: 73vh;
 }
 
 .note {
     border-radius: 10px;
     margin-bottom: 40px;
     background-color: #F0F0F0;
+    height: 180px;
+    padding: 0;
+    color: #333333
+}
+
+.note-title {
+    padding: 5px 10px;
+    border-radius: 10px 10px 0 0;
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+
+.note-body {
+    padding: 25px 20px;
+}
+
+.note-footer {
+    padding: 20px 20px;
+    color: #5C5C5C;
 }
 
 .notes-container {

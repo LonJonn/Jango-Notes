@@ -2,32 +2,52 @@
 {% load humanize %}
 
 {% block content %}
-  <h1>Notes</h1><br>
-  <a class="btn btn-primary" href="{% url 'noteCreate' %}">Add</a>
-  <br><br>
-  <button id="colour">colour</button> | 
-  <button id="group">group</button> | 
-  <button id="dateDue">date due</button> | 
-  <a href="{% url 'notes' %}">default</a>
-  <br><br>
-  <input type="text" id="searchInput">
-  <button id="search">test</button>
-  <a href="{% url 'notes' %}">clear</a>
-  <br><br>
+  <h1 style="margin: 0">Leon's Notes</h1>
+  <hr style="border-top: 1px solid #707070; margin: 5px 0 20px 0">
+  <div class="sort-icons">
+    <i id="colour" class="material-icons" style="font-size: 48px">
+      color_lens
+    </i> 
+    <i id="group" class="material-icons" style="font-size: 48px">
+      class
+    </i>
+    <i id="date-due" class="material-icons" style="font-size: 48px">
+      alarm
+    </i>
+    <a class="clear-button text-secondary align-bottom" href="{% url 'notes' %}">clear</a>
+    <a style="margin-right: 80px;
+       font-size: 1.8rem;
+        color: #727272;
+        text-decoration: none;
+        margin-top: -10px;" class="float-right" href="{% url 'noteCreate' %}">Add
+      <span style="color: #5F9CFF; 
+        font-size: 2.6rem; 
+        margin-bottom: 20px;">+</span>
+    </a>
+  </div>
+  
   {% if noteList %}
-  <div class="row">
+  <div class="note-list row">
     {% for note in noteList %}
     <div class="note {{ note.colour }} col-md-5" style="width: 100px;">
-      <div class="title">
-          <b>{{ note.title }}</b>
-          <div class="functions float-right">
-            <a href="{% url 'editNote' note.id %}">edit</a> | 
-            <a href="{% url 'deleteNote' note.id %}" class="text-danger">delete</a>
+      <div class="note-title">
+          {{ note.title }}
+          <div class="float-right" style="padding-top: 3px;">
+            <a href="{% url 'editNote' note.id %}"><i class="material-icons text-dark">
+                create
+                </i></a>
+            <a href="{% url 'deleteNote' note.id %}"><i class="material-icons text-dark">
+                clear
+                </i></a>
           </div>
       </div>
-      <br>
-      {{ note.description }}
-      <hr>
+      <div class="note-body">
+        {{ note.description }}
+      </div>
+      <div class="note-footer">
+        <hr>
+        test
+      </div>
     </div>
     <div class="col-md-1"></div>
     {% endfor %}
@@ -35,6 +55,4 @@
   {% else %}
     no notes
   {% endif %}
-  <br>
-  <a href="{% url 'index' %}">back</a>
 {% endblock %}
