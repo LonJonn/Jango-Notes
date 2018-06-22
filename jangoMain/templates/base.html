@@ -32,7 +32,7 @@
 
     <!-- Add additional CSS in static file -->
     {% load static %}
-    <link rel="stylesheet" href="{% static 'notesApp/css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'notesApp/css/style.css' %}">
   </head>
 
   <body>
@@ -40,7 +40,7 @@
     <div class="container-fluid">
 
       <div class="row">
-        <div class="col-sm-2">
+        <div class="col-md-2">
           {% block sidebar %}
             <nav class="navbar">
               <ul class="navbar-nav">
@@ -53,9 +53,6 @@
                 <li class="nav-item">
                   <a class="nav-link" href="/admin">Admin Site</a>
                 </li>
-
-                <input type="text" id="searchInput">
-                <button id="search">test</button>
 
                 {% if user.is_authenticated %}
                   <li>User:
@@ -76,7 +73,7 @@
             </nav>
           {% endblock %}
         </div>
-        <div class="col-sm-10 ">
+        <div class="col-md-10">
           {% block content %}{% endblock %}
         </div>
       </div>
@@ -147,10 +144,6 @@
     query('sort', 'dateDue')
   })
 
-  $('#removeSort').click(function() {
-    query('sort', '')
-  })
-  
 </script>
 
 {% block script %}{% endblock script %}

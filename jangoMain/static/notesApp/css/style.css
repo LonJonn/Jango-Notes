@@ -1,0 +1,48 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar-nav {
+    margin-top: 20px;
+    padding: 0;
+    list-style: none;
+}
+
+h1 {
+    color: rgb(53, 141, 182)
+}
+
+.red {
+    background-color: #FFA8A8 !important;
+}
+
+.blue {
+    background-color: #A8C3FF !important;
+}
+
+.green {
+    background-color: #90EAA1 !important;
+}
+
+.yellow {
+    background-color: #FFE9A8 !important;
+}
+
+.note {
+    border-radius: 10px;
+    margin-bottom: 40px;
+    background-color: #F0F0F0;
+}
+
+.notes-container {
+    --grid-gutter: 100px;
+    --max-columns: 3;
+    --extensions-card-width: 640px;
+    display: grid;
+    grid-column-gap: var(--grid-gutter);
+    grid-template-columns: repeat(auto-fill, var(--extensions-card-width));
+    margin: auto;
+    max-width: calc(var(--extensions-card-width) * var(--max-columns) + var(--grid-gutter) * var(--max-columns));
+    justify-content: center;
+}

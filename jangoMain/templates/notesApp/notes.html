@@ -3,27 +3,35 @@
 
 {% block content %}
   <h1>Notes</h1><br>
-  <a class="btn btn-primary" href="{% url 'noteCreate' %}">Add</a><br><br>
+  <a class="btn btn-primary" href="{% url 'noteCreate' %}">Add</a>
+  <br><br>
+  <button id="colour">colour</button> | 
+  <button id="group">group</button> | 
+  <button id="dateDue">date due</button> | 
+  <a href="{% url 'notes' %}">default</a>
+  <br><br>
+  <input type="text" id="searchInput">
+  <button id="search">test</button>
+  <a href="{% url 'notes' %}">clear</a>
+  <br><br>
   {% if noteList %}
-    <h5>You have {{ noteList.count }} note(s)!</h5>
-    <button id="colour">colour</button> | 
-    <button id="group">group</button> | 
-    <button id="dateDue">date due</button> | 
-    <button id="removeSort">clear</button><br><br>
+  <div class="row">
     {% for note in noteList %}
-      <a href="{% url 'editNote' note.id %}" class="{{ note.colour }}">{{ note.title }}</a> | 
-      <a href="{% url 'deleteNote' note.id %}" class="text-danger">delete</a>
+    <div class="note {{ note.colour }} col-md-5" style="width: 100px;">
+      <div class="title">
+          <b>{{ note.title }}</b>
+          <div class="functions float-right">
+            <a href="{% url 'editNote' note.id %}">edit</a> | 
+            <a href="{% url 'deleteNote' note.id %}" class="text-danger">delete</a>
+          </div>
+      </div>
       <br>
-      <b>created:</b>
-      {{ note.dateCreated|naturalday }}
-      <br>
-      <b>due:</b>
-      {{ note.dateDue|naturaltime }}
-      <br>
-      {{ note.colour }}
-      <br>
-      <br>
+      {{ note.description }}
+      <hr>
+    </div>
+    <div class="col-md-1"></div>
     {% endfor %}
+  </div>
   {% else %}
     no notes
   {% endif %}
