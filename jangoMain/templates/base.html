@@ -23,71 +23,118 @@
   {% load static %}
   <link rel="stylesheet" href="{% static 'notesApp/css/style.css' %}">
 </head>
-
 <body>
+  <div class="container-fluid">
+    <div class="container">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <a class="navbar-brand" href="#">CompanyName</a>
 
-  <div class="sidenav">
-    <span style="font-weight: 300; font-size: 1.9rem; color: #EBEBEB">Jango <span style="color: #D1BE7D; font-weight: 500">Notes</span></span>
-    <hr style="border-top: 1px solid rgb(235, 235, 235)">
-    <div class="inner-addon left-addon">
-        <i class="material-icons" style="color: #8E8E8E;">
-          search
-        </i>
-        <input type="text" placeholder="search" id="searchInput" class="form-control">
-    </div>
-    <a href="{% url 'index' %}">Home</a>
-    <a href="{% url 'notes' %}">My Notes</a>
-    <a href="{% url 'noteCreate' %}">Add Note</a>
-  </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-  <div class="main">
-    {% block content %}{% endblock %}
-  </div>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">About</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" data-toggle="dropdown">
+                Products
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="#">Product 1</a>
+                <a class="dropdown-item" href="#">Product 2</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Another Product</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
+      <div class="jumbotron">
+        <h1 class="display-4">Simple. Elegant. Awesome.</h1>
+        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+          aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+          </p>
 
-  <!-- 
-    <div class="container-fluid">
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+        </p>
+      </div>
 
       <div class="row">
-        <div class="col-md-2">
-          {% block sidebar %}
-            <nav class="navbar bg-dark">
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'index' %}">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{% url 'notes' %}">All notes</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="/admin">Admin Site</a>
-                </li>
-
-                {% if user.is_authenticated %}
-                  <li>User:
-                    {{ user.get_username }}</li>
-                  <li>
-                    <a href="{% url 'logout'%}?next=/accounts/logout">Logout</a>
-                  </li>
-                {% else %}
-                  <li>
-                    <a href="{% url 'login'%}?next={{request.path}}">Login</a>
-                  </li>
-                  <li>
-                      <a href="{% url 'register'%}">Register</a>
-                    </li>
-                {% endif %}
-
-              </ul>
-            </nav>
-          {% endblock %}
+        <div class="col-lg-4 col-md-12 col-sm-12">
+          <div class="card">
+            <div class="card-body text-center">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title</p>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
         </div>
-        <div class="col-md-10">
-          {% block contesnt %}{% endblock %}
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="card">
+            <div class="card-body text-center">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title</p>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-sm-12">
+          <div class="card">
+            <div class="card-body text-center">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title</p>
+              <a href="#" class="card-link">Another link</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br>
+
+      <div class="row mt-sm-4 mt-md-0">
+        <div class="col-sm-12 col-md-8">
+          <h3>An important heading</h3>
+          <p class="lead">A sort of important subheading can go here, which is larger and gray.</p>
+
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+            aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+          <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+            aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+        </div>
+
+        <div class="col-sm-12 col-md-4">
+          <h3 class="mb-4">Secondary Menu</h3>
+
+          <ul class="nav flex-column nav-pills">
+            <li class="nav-item">
+              <a class="nav-link active" href="#">Active</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Link</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#">Disabled</a>
+            </li>
+          </ul>
         </div>
       </div>
 
-    </div> -->
+    </div>
+  </div>
 </body>
 
 </html>

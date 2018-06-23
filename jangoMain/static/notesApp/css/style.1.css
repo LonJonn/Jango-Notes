@@ -41,6 +41,35 @@ h1 {
     background-color: #FADA7A
 }
 
+/* The sidebar menu */
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 20vw; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: #2F2F2F; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding: 20px 30px;
+    text-align: right;
+}
+
+/* The navigation menu links */
+.sidenav a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #CECECE;
+    display: block;
+    font-weight: 300
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+    color: #f1f1f1;
+}
+
 #searchInput {
     width: 100%;
     margin: 30px 0 20px;
@@ -59,9 +88,51 @@ h1 {
     color: #8E8E8E !important
 }
 
+.inner-addon { 
+    position: relative; 
+}
+
+/* style icon */
+.inner-addon .material-icons {
+  position: absolute;
+  padding: 7px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon .material-icons  { left:  0px;}
+.right-addon .material-icons { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+
+/* Style page content */
+.main {
+    padding: 20px 0px 0 85px;
+    margin-left: 20vw; /* Same as the width of the sidebar */
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+}
+
 .sort-icons {
     color: #727272;
     margin-bottom: 20px;
+}
+
+.clear-button {
+    background: #f1f1f1;
+    border-radius: 50px;
+    padding: 3px 18px 7px;
+    height: 38px;
+    width: 60px;
+    font-size: 1.8rem;
+    margin-left: 50px;
 }
 
 .note-list {
