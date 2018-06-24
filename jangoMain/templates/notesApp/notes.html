@@ -1,73 +1,76 @@
-{% extends "base.html" %}
-{% load humanize %}
+{% extends "base.html" %} {% load humanize %} {% block content %}
+<span class="display-4">{{ user.get_username|title }}'s Notes</span>
 
-{% block content %}
-  <span class="display-4">{{ user.get_username|title }}'s Notes</span>
-
-  <hr style="border-top: 1px solid #707070; margin: 5px 0 20px 0">
-  <div class="sort-icons">
-    <i id="colour" class="material-icons" style="font-size: 48px">
-      color_lens
-    </i> 
-    <i id="group" class="material-icons" style="font-size: 48px">
-      class
-    </i>
-    <i id="date-due" class="material-icons" style="font-size: 48px">
-      alarm
-    </i>
-    <a class="clear-button text-secondary align-bottom" href="{% url 'notes' %}">clear</a>
-    <a style="font-size: 1.8rem;
+<hr style="border-top: 1px solid #707070; margin: 5px 0 20px 0">
+<div class="sort-icons">
+  <i id="colour" class="material-icons" style="font-size: 48px">
+    color_lens
+  </i>
+  <i id="group" class="material-icons" style="font-size: 48px">
+    class
+  </i>
+  <i id="date-due" class="material-icons" style="font-size: 48px">
+    alarm
+  </i>
+  <a class="clear-button text-secondary align-bottom" href="{% url 'notes' %}">clear</a>
+  <a style="font-size: 1.8rem;
         color: #727272;
         text-decoration: none;" class="float-right" href="{% url 'noteCreate' %}">Add
-      <span style="color: #5F9CFF; 
+    <span style="color: #5F9CFF; 
         font-size: 2.6rem; 
         margin-bottom: 20px;">+</span>
-    </a>
-  </div>
-  
-  {% if noteList %}
-    {% for note in noteList %}
-    <div class="note {{ note.colour }}">
-      <div class="note-title">
-          {{ note.title }}
-          <div class="float-right" style="padding-top: 3px;">
-            <a href="{% url 'editNote' note.id %}"><i class="material-icons text-dark">
-                create
-                </i></a>
-            <a href="{% url 'deleteNote' note.id %}"><i class="material-icons text-dark">
-                clear
-                </i></a>
-          </div>
-      </div>
-      <div class="note-body">
-        {{ note.description }}
-      </div>
-      <div style="position: relative; top: 70px;" class="note-footer">
-        <hr class="mt-0 mb-1">
-        <span class="pl-1">test</span>
-      </div>
-    </div>
-    {% endfor %}
-  </div>
-  {% else %}
-  <div class="jumbotron">
-      <h1 class="display-4">Hmmm.</h1>
-      <p class="lead">You dont have any notes...</p>
-      <p class="lead">Lets start adding some!</p>
-      <hr class="my-4">
-      <a href="{% url 'noteCreate' %}" class="btn btn-primary btn-lg">Add</a>
-  </div>
-  {% endif %}
-{% endblock %}
+  </a>
+</div>
 
-{% block sidebar %}
+{% if noteList %} {% for note in noteList %}
+<div class="note {{ note.colour }}">
+  <div class="note-title pl-3 py-1">
+    {{ note.title }}
+    <div class="float-right pt-1 pr-2">
+      <a href="{% url 'editNote' note.id %}">
+        <i class="edit material-icons text-dark">
+          create
+        </i>
+      </a>
+      <a href="{% url 'deleteNote' note.id %}">
+        <i class="delete material-icons text-dark">
+          clear
+        </i>
+      </a>
+    </div>
+  </div>
+  <div class="note-body">
+    {{ note.description }}
+  </div>
+  <div style="position: relative; top: 83px;" class="note-footer">
+    <hr class="mt-0 mb-1">
+    <span class="pl-1">
+      <i class="material-icons" style="position: relative; top: 7px">
+        class
+      </i> {{ note.group }}</span>
+    <span class="float-right"><i class="material-icons" style="position: relative; top: 7px">
+        alarm
+      </i> {{ note.dateDue|naturaltime }}</span>
+  </div>
+</div>
+{% endfor %}
+</div>
+{% else %}
+<div class="jumbotron">
+  <h1 class="display-4">Hmmm.</h1>
+  <p class="lead">You dont have any notes...</p>
+  <p class="lead">Lets start adding some!</p>
+  <hr class="my-4">
+  <a href="{% url 'noteCreate' %}" class="btn btn-primary btn-lg">Add</a>
+</div>
+{% endif %} {% endblock %} {% block sidebar %}
 <li class="nav-item">
-    <a class="nav-link" href="{% url 'index' %}">Home</a>
-  </li>
-  <li class="nav-item active">
-    <a class="nav-link" href="{% url 'notes' %}">My Notes</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" href="{% url 'noteCreate' %}">Add Note</a>
-  </li>
+  <a class="nav-link" href="{% url 'index' %}">Home</a>
+</li>
+<li class="nav-item active">
+  <a class="nav-link" href="{% url 'notes' %}">My Notes</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="{% url 'noteCreate' %}">Add Note</a>
+</li>
 {% endblock %}

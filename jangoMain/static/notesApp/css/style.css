@@ -1,121 +1,131 @@
-html, body {
-    height: 100%;
-    min-height: 100%;
-  }
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+}
 
 .red {
-    background-color: #FFA8A8 !important;
+  background-color: #ffa8a8 !important;
 }
 
 .red > .note-title {
-    background-color: #FB8585
+  background-color: #fb8585;
 }
 
 .blue {
-    background-color: #A8C3FF !important;
+  background-color: #a8c3ff !important;
 }
 
 .blue > .note-title {
-    background-color: #7AA1FA
+  background-color: #7aa1fa;
 }
 
 .green {
-    background-color: #90EAA1 !important;
+  background-color: #90eaa1 !important;
 }
 
 .green > .note-title {
-    background-color: rgb(123, 209, 138)
+  background-color: rgb(123, 209, 138);
 }
 
 .yellow {
-    background-color: #FFE9A8 !important;
+  background-color: #ffe9a8 !important;
 }
 
 .yellow > .note-title {
-    background-color: #FADA7A
+  background-color: #fada7a;
 }
 
 #searchInput {
-    width: 100%;
-    margin: 30px 0 20px;
-    border-radius: 25px;
-    border-style: none;
-    padding: 0px 15px 5px;
-    font-size: 1.6rem;
-    height: 35px;
-    font-weight: 300;
-    background-color: #4B4B4B;
-    color: #8E8E8E;
-    text-align: right;
+  width: 100%;
+  margin: 30px 0 20px;
+  border-radius: 25px;
+  border-style: none;
+  padding: 0px 15px 5px;
+  font-size: 1.6rem;
+  height: 35px;
+  font-weight: 300;
+  background-color: #4b4b4b;
+  color: #8e8e8e;
+  text-align: right;
 }
 
 ::placeholder {
-    color: #8E8E8E !important
+  color: #8e8e8e !important;
 }
 
 .sort-icons {
-    color: #727272;
-    margin-bottom: 20px;
+  color: #727272;
+  margin-bottom: 20px;
 }
 
 .note-list {
-    overflow-y: scroll;
-    height: 73vh;
+  overflow-y: scroll;
+  height: 73vh;
 }
 
 .note {
-    border-radius: 10px;
-    margin-bottom: 40px;
-    background-color: #F0F0F0;
-    height: 200px;
-    padding: 0;
-    color: #333333
+  border-radius: 10px;
+  margin-bottom: 40px;
+  background-color: #f0f0f0;
+  height: 220px;
+  padding: 0;
+  color: #333333;
 }
 
 .note-title {
-    padding: 5px 10px;
-    border-radius: 10px 10px 0 0;
-    font-size: 1.2rem;
-    font-weight: 500;
+  border-radius: 10px 10px 0 0;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .note-body {
-    padding: 10px 10px;
+  padding: 10px 10px;
 }
 
 .note-footer {
-    padding: 10px 10px;
-    color: rgb(124, 124, 124);
+  padding: 10px 10px;
+  color: rgb(107, 107, 107);
 }
 
 .sidenav > .navbar-nav > .nav-item > .nav-link {
-    color: #CECECE;
+  color: #cecece;
 }
 
-.sidenav > .navbar-nav > .active a{
-    color: #C7B474 !important;
-    border-right: #C7B474 8px solid;
-    padding: 0;
-    padding-right: 15px !important;
-    margin: 8px 0;
+.sidenav > .navbar-nav > .nav-item > .nav-link:hover {
+  color: rgb(218, 204, 158);
 }
 
+.sidenav > .navbar-nav > .active a {
+  color: #c7b474 !important;
+  border-right: #c7b474 8px solid;
+  padding: 0;
+  padding-right: 15px !important;
+  margin: 8px 0;
+}
 
+.edit:hover {
+  color: #5481ec !important;
+}
+
+.delete:hover {
+  color: #eb3c3c !important;
+}
 
 @media only screen and (min-width: 768px) {
-    .sidenav {
-        min-width: 25vw !important;
-    }
+  .sidenav {
+    min-width: 25vw !important;
+  }
 }
 
 @media only screen and (min-width: 1198px) {
-    .sidenav {
-        min-width: 20vw !important;
-    }
+  .sidenav {
+    min-width: 20vw !important;
+  }
 }
 
-.inner-addon { 
-    position: relative; 
+.inner-addon {
+  position: relative;
 }
 
 /* style icon */
@@ -126,14 +136,22 @@ html, body {
 }
 
 /* align icon */
-.left-addon .material-icons  { left:  0px;}
-.right-addon .material-icons { right: 0px;}
+.left-addon .material-icons {
+  left: 0px;
+}
+.right-addon .material-icons {
+  right: 0px;
+}
 
 /* add padding  */
-.left-addon input  { padding-left:  30px; }
-.right-addon input { padding-right: 30px; }
+.left-addon input {
+  padding-left: 30px;
+}
+.right-addon input {
+  padding-right: 30px;
+}
 
 .footer-icons {
-    position: relative;
-    top: 5px;
+  position: relative;
+  top: 5px;
 }
