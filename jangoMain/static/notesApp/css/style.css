@@ -1,18 +1,7 @@
-* {
-    margin: 0;
-    padding: 0;
-}
-
 html, body {
     height: 100%;
     min-height: 100%;
   }
-
-h1 {
-    color: #535353;
-    font-weight: 300;
-    font-size: 4.2rem
-}
 
 .red {
     background-color: #FFA8A8 !important;
@@ -78,7 +67,7 @@ h1 {
     border-radius: 10px;
     margin-bottom: 40px;
     background-color: #F0F0F0;
-    height: 180px;
+    height: 200px;
     padding: 0;
     color: #333333
 }
@@ -91,43 +80,60 @@ h1 {
 }
 
 .note-body {
-    padding: 25px 20px;
+    padding: 10px 10px;
 }
 
 .note-footer {
-    padding: 20px 20px;
-    color: #5C5C5C;
+    padding: 10px 10px;
+    color: rgb(124, 124, 124);
 }
 
-.notes-container {
-    --grid-gutter: 100px;
-    --max-columns: 3;
-    --extensions-card-width: 640px;
-    display: grid;
-    grid-column-gap: var(--grid-gutter);
-    grid-template-columns: repeat(auto-fill, var(--extensions-card-width));
-    margin: auto;
-    max-width: calc(var(--extensions-card-width) * var(--max-columns) + var(--grid-gutter) * var(--max-columns));
-    justify-content: center;
+.sidenav > .navbar-nav > .nav-item > .nav-link {
+    color: #CECECE;
 }
+
+.sidenav > .navbar-nav > .active a{
+    color: #C7B474 !important;
+    border-right: #C7B474 8px solid;
+    padding: 0;
+    padding-right: 15px !important;
+    margin: 8px 0;
+}
+
+
 
 @media only screen and (min-width: 768px) {
-    .test {
-        width: 250px !important;
-    }
-
-    .est {
-        padding-left: 50px;
+    .sidenav {
+        min-width: 25vw !important;
     }
 }
 
 @media only screen and (min-width: 1198px) {
-    .test {
-        width: 280px !important;
-    }
-
-    .est {
-        padding-left: 120px;
+    .sidenav {
+        min-width: 20vw !important;
     }
 }
 
+.inner-addon { 
+    position: relative; 
+}
+
+/* style icon */
+.inner-addon .material-icons {
+  position: absolute;
+  padding: 7px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon .material-icons  { left:  0px;}
+.right-addon .material-icons { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+.footer-icons {
+    position: relative;
+    top: 5px;
+}

@@ -2,7 +2,8 @@
 {% load humanize %}
 
 {% block content %}
-  <h1 style="margin: 0">Leon's Notes</h1>
+  <span class="display-4">{{ user.get_username|title }}'s Notes</span>
+
   <hr style="border-top: 1px solid #707070; margin: 5px 0 20px 0">
   <div class="sort-icons">
     <i id="colour" class="material-icons" style="font-size: 48px">
@@ -15,11 +16,9 @@
       alarm
     </i>
     <a class="clear-button text-secondary align-bottom" href="{% url 'notes' %}">clear</a>
-    <a style="margin-right: 80px;
-       font-size: 1.8rem;
+    <a style="font-size: 1.8rem;
         color: #727272;
-        text-decoration: none;
-        margin-top: -10px;" class="float-right" href="{% url 'noteCreate' %}">Add
+        text-decoration: none;" class="float-right" href="{% url 'noteCreate' %}">Add
       <span style="color: #5F9CFF; 
         font-size: 2.6rem; 
         margin-bottom: 20px;">+</span>
@@ -27,9 +26,8 @@
   </div>
   
   {% if noteList %}
-  <div class="note-list row">
     {% for note in noteList %}
-    <div class="note {{ note.colour }} col-md-5" style="width: 100px;">
+    <div class="note {{ note.colour }}">
       <div class="note-title">
           {{ note.title }}
           <div class="float-right" style="padding-top: 3px;">
@@ -44,15 +42,32 @@
       <div class="note-body">
         {{ note.description }}
       </div>
-      <div class="note-footer">
-        <hr>
-        test
+      <div style="position: relative; top: 70px;" class="note-footer">
+        <hr class="mt-0 mb-1">
+        <span class="pl-1">test</span>
       </div>
     </div>
-    <div class="col-md-1"></div>
     {% endfor %}
   </div>
   {% else %}
-    no notes
+  <div class="jumbotron">
+      <h1 class="display-4">Hmmm.</h1>
+      <p class="lead">You dont have any notes...</p>
+      <p class="lead">Lets start adding some!</p>
+      <hr class="my-4">
+      <a href="{% url 'noteCreate' %}" class="btn btn-primary btn-lg">Add</a>
+  </div>
   {% endif %}
+{% endblock %}
+
+{% block sidebar %}
+<li class="nav-item">
+    <a class="nav-link" href="{% url 'index' %}">Home</a>
+  </li>
+  <li class="nav-item active">
+    <a class="nav-link" href="{% url 'notes' %}">My Notes</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'noteCreate' %}">Add Note</a>
+  </li>
 {% endblock %}

@@ -1,16 +1,67 @@
 {% extends "base.html" %}
+{% load humanize %}
 
 {% block content %}
-  <h1>Welcome to Jango Notes</h1>
-  <h4>This is Jango Notes, created by Justin and Leon!!</h4>
-  <br><br>
-  Right now, we are currently remembering:
-  <ul>
-    <li>
-      <b>{{ usersCount }}</b>
-      users!</li>
-    <li>
-      <b>{{ notesCount }}</b>
-      notes!</li>
-  </ul>
+<div class="jumbotron">
+  <h1 class="display-4">Welcome to Jango Notes.</h1>
+  <p class="lead">A Web App made by Leon Salsiccia and Justin Yuen.</p>
+  <p class="lead">Jango Notes lets you save any note you need, catagorise them, colour them, then slap a reminder on them and let you know
+    just how much time you have left until a due task!
+    <br>Jango Notes also lets you clear off any completed tasks or edit any existing ones!
+  </p>
+  <hr class="my-4">
+  <p class="lead text-center text-md-left mb-0">
+    <a class="btn btn-primary btn-lg" href="{% url 'notes' %}" role="button">Get Started</a>
+  </p>
+</div>
+<div class="bg-primary lead text-light rounded p-3">Here are some numbers to oogle at!</div>
+<br>
+<div class="row">
+  <div class="col-12 col-lg-4 mb-3">
+    <div class="card">
+      <div class="card-body text-center">
+        <h5 class="card-title">Users Stored</h5>
+        <p class="card-text">We are currently storing:</p>
+        <span style="font-size: 2rem" class="font-weight-bold text-primary">{{ usersCount }}</span>
+        <br>
+        <span class="lead">Users</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-lg-4 mb-3">
+    <div class="card">
+      <div class="card-body text-center">
+        <h5 class="card-title">Notes Stored</h5>
+        <p class="card-text">We are currently storing:</p>
+        <span style="font-size: 2rem" class="font-weight-bold text-primary">{{ notesCount }}</span>
+        <br>
+        <span class="lead">Notes</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-12 col-lg-4 mb-3">
+    <div class="card">
+      <div class="card-body text-center">
+        <h5 class="card-title">Last Note</h5>
+        <p class="card-text">Lastest note created:</p>
+        <span style="font-size: 2rem" class="font-weight-bold text-primary">{{ latestNote.dateCreated|naturalday }}</span>
+        <br>
+        <span class="text-white lead">.</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %} 
+
+{% block sidebar %}
+<li class="nav-item active">
+  <a class="nav-link" href="{% url 'index' %}">Home</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="{% url 'notes' %}">My Notes</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="{% url 'noteCreate' %}">Add Note</a>
+</li>
 {% endblock %}

@@ -9,8 +9,8 @@ from django.contrib.auth.models import User
 def Index(request):
     notesCount = Note.objects.all().count()
     usersCount = User.objects.all().count()
-
-    return render(request, 'notesApp/index.html', {'usersCount': usersCount, 'notesCount': notesCount})
+    latestNote = Note.objects.order_by('-pk')[0]
+    return render(request, 'notesApp/index.html', {'usersCount': usersCount, 'notesCount': notesCount, 'latestNote': latestNote})
 
 
 from django.contrib.auth.decorators import login_required
