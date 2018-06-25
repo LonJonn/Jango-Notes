@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <h1 class="display-4 mt-3">Log in</h1>
+    <br>
 
   {% if form.errors %}
-    <p>Your username and password didn't match. Please try again.</p>
+    <p class="text-danger" >Your username and password didn't match. Please try again.</p>
   {% endif %}
 
   {% if next %}
@@ -11,31 +13,48 @@
       <p>Your account doesn't have access to this page. To proceed, please login with
         an account that has access.</p>
     {% else %}
-      <p>Please login to see this page.</p>
+      <p class="text-info lead">Please login to see this page.</p>
     {% endif %}
   {% endif %}
 
   <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
-
-    <div>
-      <td>{{ form.username.label_tag }}</td>
-      <td>{{ form.username }}</td>
-    </div>
-    <div>
-      <td>{{ form.password.label_tag }}</td>
-      <td>{{ form.password }}</td>
-    </div>
-
-    <div>
-      <input type="submit" value="login"/>
-      <input type="hidden" name="next" value="{{ next }}"/>
-    </div>
+    {% for field in form %}
+      <p>
+        {{ field.label_tag }}<br>
+        {{ field }}
+        {% if field.help_text %}
+          <small style="color: grey">{{ field.help_text }}</small>
+        {% endif %}
+        {% for error in field.errors %}
+          <p class="text-danger">{{ error }}</p>
+        {% endfor %}
+      </p>
+    {% endfor %}
+    <button class="btn btn-primary" type="submit" value="login">Login</button>
+    <input type="hidden" name="next" value="{{ next }}"/>
   </form>
+  <br>
 
-  {# Assumes you setup the password_reset view in your URLconf #}
   <p>
-    <a href="{% url 'password_reset' %}">Lost password?</a>
+    <a class="lead" href="{% url 'password_reset' %}">Lost password?</a>
   </p>
+
+
+<style>
+  #id_username, #id_password {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+  }
+</style>
 
 {% endblock %}

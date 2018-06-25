@@ -15,7 +15,23 @@ class NoteForm(forms.ModelForm):
             "format": "MM/DD/YYYY HH:mm",
         })}
 
-class UserForm(forms.ModelForm):
+    def __init__(self, *args, **kwargs):
+        super(NoteForm, self).__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
+
+from django.contrib.auth.forms import UserCreationForm
+from django.utils.safestring import mark_safe
+
+class SignUpForm(UserCreationForm):
+    email = forms.EmailField(max_length=254, help_text='Required. Inform a valid email address.')
+
     class Meta:
         model = User
-        fields = ['username', 'email', 'password']
+        fields = ('username', 'email', 'password1', 'password2', )
+
+    def __init__(self, *args, **kwargs):
+        super(SignUpForm, self).__init__(*args, **kwargs)
+        for field_name, field in self.fields.items():
+            field.widget.attrs['class'] = 'form-control'
+        self.fields['password1'].help_text = mark_safe(self.fields['password1'].help_text)

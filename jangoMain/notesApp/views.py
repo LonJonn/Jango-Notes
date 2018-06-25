@@ -68,17 +68,20 @@ def DeleteNote(request, pk):
 
     return redirect('notes')
 
-from .forms import UserForm
-from django.contrib.auth import login
+from django.contrib.auth import login, authenticate
+from .forms import SignUpForm
 
 def CreateUser(request):
     if request.method == "POST":
-        form = UserForm(request.POST)
+        form = SignUpForm(request.POST)
         if form.is_valid():
-            new_user = User.objects.create_user(**form.cleaned_data)
-            login(request, new_user)
+            form.save()
+            username = form.cleaned_data.get('username')
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(username=username, password=raw_password)
+            login(request, user)
             return redirect('notes')
     else:
-        form = UserForm()
+        form = SignUpForm()
 
     return render(request, 'notesApp/register.html', {'form': form})

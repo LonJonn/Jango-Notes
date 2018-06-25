@@ -12,7 +12,7 @@
   <i id="dateDue" class="material-icons" style="font-size: 48px">
     alarm
   </i>
-  <a class="text-danger" style="position: relative; top: -15px; font-size: 1.3rem" href="{% url 'notes' %}">clear</a>
+  <a class="text-danger pl-2" style="position: relative; top: -15px; font-size: 1.3rem" href="{% url 'notes' %}">Clear</a>
   <a style="font-size: 1.8rem;
         color: #727272;
         text-decoration: none;
@@ -58,7 +58,7 @@
       </a>
     </div>
   {% endif %}
-  <div class="note-body" style="width: 100%; overflow-x: hidden; overflow-y: scroll; height: 110px;">
+  <div class="note-body" style="width: 100%; overflow-x: auto; overflow-y: auto; height: 110px;">
     {% if note.description %}
       {{ note.description }}
     {% else %}

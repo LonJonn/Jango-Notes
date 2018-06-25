@@ -60,14 +60,14 @@ body {
 }
 
 .sort-icons i:hover {
-    cursor: pointer;
-    color: rgb(78, 147, 236)
+  cursor: pointer;
+  color: rgb(78, 147, 236);
 }
 
 .note {
   border-radius: 10px;
   margin-bottom: 40px;
-  background-color: #f0f0f0;
+  background-color: #ebebeb;
   height: 200px;
   padding: 0;
   color: #333333;
@@ -75,18 +75,17 @@ body {
 }
 
 .note-title {
-    background-color: #dadada
+  background-color: #dadada;
 }
 
 .notelist {
-  overflow-y: scroll;
-  height: 73vh;
+  overflow-y: auto;
+  height: 85%;
   border-radius: 10px !important;
 }
 
-
 .note:nth-child(odd) {
-    margin-right: 4rem !important
+  margin-right: 4rem !important;
 }
 
 .note-title {
@@ -101,7 +100,7 @@ body {
 
 .note-footer {
   padding: 10px 10px;
-  color: rgb(107, 107, 107);
+  color: rgb(92, 92, 92);
 }
 
 .sidenav > .navbar-nav > .nav-item > .nav-link {
@@ -135,10 +134,10 @@ body {
 }
 
 @media only screen and (max-width: 768px) {
-    .note {
-      max-width: 100% !important;
-    }
+  .note {
+    max-width: 100% !important;
   }
+}
 
 @media only screen and (min-width: 1198px) {
   .sidenav {
