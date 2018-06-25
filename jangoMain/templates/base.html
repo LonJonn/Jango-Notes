@@ -25,7 +25,7 @@
 
 <body>
 
-  <nav class="d-lg-none navbar navbar-expand-md navbar-dark" style="background-color: #2F2F2F">
+  <nav class="d-lg-none sticky-top navbar navbar-expand-md navbar-dark" style="background-color: #2F2F2F">
     <span class="display-1 navbar-brand">Jango
       <span class="font-weight-bold" style="color: #D1BE7D">Notes</span>
     </span>
@@ -140,17 +140,13 @@
           </ul>
         </div>
       </nav>
-
-
+      
       <div class="col bg-light px-5 pt-4">
         {% block content %}{% endblock %}
       </div>
 
     </div>
   </div>
-
-
-
 </body>
 
 </html>

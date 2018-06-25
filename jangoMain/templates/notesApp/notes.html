@@ -9,13 +9,15 @@
   <i id="group" class="material-icons" style="font-size: 48px">
     class
   </i>
-  <i id="date-due" class="material-icons" style="font-size: 48px">
+  <i id="dateDue" class="material-icons" style="font-size: 48px">
     alarm
   </i>
-  <a class="clear-button text-secondary align-bottom" href="{% url 'notes' %}">clear</a>
+  <a class="text-danger" style="position: relative; top: -15px; font-size: 1.3rem" href="{% url 'notes' %}">clear</a>
   <a style="font-size: 1.8rem;
         color: #727272;
-        text-decoration: none;" class="float-right" href="{% url 'noteCreate' %}">Add
+        text-decoration: none;
+        position: relative;
+        top: -10px" class="float-right" href="{% url 'noteCreate' %}">Add
     <span style="color: #5F9CFF; 
         font-size: 2.6rem; 
         margin-bottom: 20px;">+</span>
@@ -56,11 +58,11 @@
       </a>
     </div>
   {% endif %}
-  <div class="note-body">
+  <div class="note-body" style="width: 100%; overflow-x: hidden; overflow-y: scroll; height: 110px;">
     {% if note.description %}
       {{ note.description }}
     {% else %}
-      <div class="text-center mt-4 display-4">{{ note.title }}</div>
+      <div class="text-center mt-2 display-4">{{ note.title }}</div>
     {% endif %}
   </div>
   <div style="position: absolute; top: 145px; width: 100%;" class="note-footer">
