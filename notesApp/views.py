@@ -9,7 +9,11 @@ from django.contrib.auth.models import User
 def Index(request):     #on index visit
     notesCount = Note.objects.all().count() #get count of main info
     usersCount = User.objects.all().count()
-    latestNote = Note.objects.order_by('-pk')[0]    #get most recent note
+    try:
+        latestNote = Note.objects.order_by('-pk')[0]
+    except:
+        latestNote = None
+        #get most recent note
     return render(request, 'notesApp/index.html', {'usersCount': usersCount, 'notesCount': notesCount, 'latestNote': latestNote})
 
 
