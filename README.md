@@ -5,22 +5,26 @@ Notes made in Django by Justin and Leon
 `git clone git@github.com:LonJonn/Jango-Notes.git`
 
 ### Creating Virtual Python Env
-1. cd into folder with jangoMain `cd path/to/folder`
+1. cd into folder  `cd jango-notes`
 
 2. `python3 -m venv jangoEnv`
 
 3. Set Python Env `source jangoEnv/bin/activate` (OSX)  
 or `jangoEnv/Scripts/activate` (Windows)
 
-4. `pip install django`
-
-5. `pip install django-bootstrap-datepicker-plus`
+4. `pip install -r requirements`
 
 Final Tree:
 ```
 Jango-Notes
   |-- jangoEnv
-  |-- jangoMain
+  |-- jangoProject
+  |-- notesApp
+  |-- static
+  |-- templates
+  |-- requirements.txt
+  |-- runtime.txt
+  |-- manage.py
   |-- .gitignore
   `-- README.md
 ```
@@ -31,11 +35,9 @@ Jango-Notes
 
 2. Set Python Env `source jangoEnv/bin/activate`
 
-3. change directory `cd jangoMain`
+3. start server `python manage.py runserver`
 
-4. start server `python manage.py runserver`
-
-5. Open `http://localhost:8000` in browser
+4. Open `http://localhost:8000` in browser
 
 ### Starting Dev Server (Windows)
 
@@ -43,11 +45,9 @@ Jango-Notes
 
 2. Set Python Env `jangoEnv/Scripts/activate` 
 
-3. change directory `cd jangoMain`
+3. start server `python manage.py runserver`
 
-4. start server `python manage.py runserver`
-
-5. Open `http://localhost:8000` in browser
+4. Open `http://localhost:8000` in browser
 
 ### Making changes to DB and Models
 If you make a change to a model
