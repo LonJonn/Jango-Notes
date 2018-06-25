@@ -12,7 +12,7 @@ Notes made in Django by Justin and Leon
 3. Set Python Env `source jangoEnv/bin/activate` (OSX)  
 or `jangoEnv/Scripts/activate` (Windows)
 
-4. `pip install -r requirements`
+4. `pip install -r requirements.txt`
 
 Final Tree:
 ```
