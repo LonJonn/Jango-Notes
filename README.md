@@ -9,11 +9,12 @@ Notes made in Django by Justin and Leon
 
 2. `python3 -m venv jangoEnv`
 
-3. Set Python Env `source jangoEnv/bin/activate`
+3. Set Python Env `source jangoEnv/bin/activate` (OSX)  
+or `jangoEnv/Scripts/activate` (Windows)
 
 4. `pip install django`
 
-5. `pip install django-bootstrap-datepicker`
+5. `pip install django-bootstrap-datepicker-plus`
 
 Final Tree:
 ```
