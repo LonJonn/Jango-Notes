@@ -1,1 +1,1 @@
-web: gunicorn jangoproject.wsgi --log-file -
+web: gunicorn jangoProject.wsgi --log-file -
