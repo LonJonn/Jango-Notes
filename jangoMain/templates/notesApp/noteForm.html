@@ -6,6 +6,9 @@
 
 {% block content %}
   <h1 id="title" class="display-4 mt-3">Add Note</h1>
+  {% if form.errors %}
+    <p class="text-danger" >Please correct the errors below.</p>
+  {% endif %}
   <br>
   <form method="post">
     {% csrf_token %}
