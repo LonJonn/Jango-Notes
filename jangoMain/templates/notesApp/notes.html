@@ -22,8 +22,11 @@
   </a>
 </div>
 
-{% if noteList %} {% for note in noteList %}
-<div class="note {{ note.colour }}">
+{% if noteList %}
+<div class="row notelist pr-3">
+{% for note in noteList %}
+<div class="note col-12 col-lg-6 {{ note.colour }}">
+  {% if note.description %}
   <div class="note-title pl-3 py-1">
     {{ note.title }}
     <div class="float-right pt-1 pr-2">
@@ -39,21 +42,40 @@
       </a>
     </div>
   </div>
+  {% else %}
+  <div class="float-right pt-1 pr-2">
+      <a href="{% url 'editNote' note.id %}">
+        <i class="edit material-icons text-dark">
+          create
+        </i>
+      </a>
+      <a href="{% url 'deleteNote' note.id %}">
+        <i class="delete material-icons text-dark">
+          clear
+        </i>
+      </a>
+    </div>
+  {% endif %}
   <div class="note-body">
-    {{ note.description }}
+    {% if note.description %}
+      {{ note.description }}
+    {% else %}
+      <div class="text-center mt-4 display-4">{{ note.title }}</div>
+    {% endif %}
   </div>
-  <div style="position: relative; top: 83px;" class="note-footer">
+  <div style="position: absolute; top: 145px; width: 100%;" class="note-footer">
     <hr class="mt-0 mb-1">
     <span class="pl-1">
       <i class="material-icons" style="position: relative; top: 7px">
         class
       </i> {{ note.group }}</span>
-    <span class="float-right"><i class="material-icons" style="position: relative; top: 7px">
+    <span class="float-right pr-1"><i class="material-icons" style="position: relative; top: 7px">
         alarm
       </i> {{ note.dateDue|naturaltime }}</span>
   </div>
 </div>
 {% endfor %}
+
 </div>
 {% else %}
 <div class="jumbotron">
