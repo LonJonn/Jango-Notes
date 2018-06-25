@@ -2,7 +2,7 @@ from django.urls import path
 
 from . import views
 
-urlpatterns = [
+urlpatterns = [     #define urls used in the note app accross the site
     path('', views.Index, name='index'),
     path('notes', views.Notes, name='notes'),
     path('note/<int:pk>', views.EditNote, name='editNote'),
