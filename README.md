@@ -13,6 +13,8 @@ Notes made in Django by Justin and Leon
 
 4. `pip install django`
 
+5. `pip install django-bootstrap-datepicker`
+
 Final Tree:
 ```
 Jango-Notes
@@ -22,11 +24,23 @@ Jango-Notes
   `-- README.md
 ```
 
-### Starting Dev Server
+### Starting Dev Server (OSX)
 
 1. Open terminal <kbd>CTRL</kbd>+<kbd>`</kbd>
 
-2. Set Python Env `source jangoEnv/bin/activate` 
+2. Set Python Env `source jangoEnv/bin/activate`
+
+3. change directory `cd jangoMain`
+
+4. start server `python manage.py runserver`
+
+5. Open `http://localhost:8000` in browser
+
+### Starting Dev Server (Windows)
+
+1. Open terminal <kbd>CTRL</kbd>+<kbd>`</kbd>
+
+2. Set Python Env `jangoEnv/Scripts/activate` 
 
 3. change directory `cd jangoMain`
 
