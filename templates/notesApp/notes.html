@@ -30,7 +30,7 @@
 <div class="note col-12 col-lg-6 {{ note.colour }}">
   {% if note.description %}
   <div class="note-title pl-3 py-1">
-    {{ note.title }}
+    {{ note.title|truncatechars:33 }}
     <div class="float-right pt-1 pr-2">
       <a href="{% url 'editNote' note.id %}">
         <i class="edit material-icons text-dark">
